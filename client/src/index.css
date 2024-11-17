@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --darkGreen: #3a5a40;
+  --lighter: #588157;
+  --pale: #a3b18a;
+  --neutral: #dad7cd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(./assets/background.jpg);
+  background-position: 10%;
+  background-size: cover;
+  color: var(--darkGreen);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  font-family: "Sour Gummy", sans-serif;
+}
+
+.home-style {
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin-bottom: 16px;
+  animation: 2s anim-lineUp ease-out infinite;
+}
+
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.nav-bar {
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  gap: 5px;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  margin-bottom: 50px;
+}
+
+.home-page p {
+  font-size: 15px;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+h2 {
+  margin-bottom: 70px;
+  font-size: 40px;
+}
+
+.log-in-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.log-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 150px;
+  backdrop-filter: blur(10px);
+  width: 50vw;
+  height: 50vh;
+}
+
+.log-in p {
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 150px;
+  backdrop-filter: blur(10px);
+  width: 50vw;
+  height: 50vh;
+}
+
+.sign-up p {
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+button {
+  border: none;
+  background-color: var(--darkGreen);
+  height: 20px;
+  width: 70px;
+  color: white;
+  border-radius: 15px;
+  font-family: "Sour Gummy", sans-serif;
+  cursor: pointer;
+}
+
+.input {
+  margin: 10px 0;
+  display: flex;
+}
+
+.input input {
+  margin-left: 15px;
+  padding-left: 5px;
+  border: none;
+  outline: none;
+  font-size: 11px;
+  border-radius: 5px;
+  border: 1px solid var(--darkGreen);
+  background: linear-gradient(45deg, var(--neutral), var(--pale));
+  flex: 1;
+  display: inline-block;
+  font-family: "Sour Gummy", sans-serif;
+}
+
+.input input:focus {
+  box-shadow: inset 0 0 0 1px var(--lighter), 0 0 5px 3px white;
+  outline: none;
+}
+
+.tracker-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--darkGreen);
+  border-radius: 15px;
+  background-color: var(--neutral);
+  padding: 30px;
+}
+
+.tracker-screen h1 {
+  margin: 20px 0;
+  color: #c0392b;
+}
+.show-balance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.show-balance h2 {
+  font-size: 25px;
+  margin: 0;
+}
+
+.money {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+.money.plus {
+  color: var(--lighter);
+}
+
+.money.minus {
+  color: #c0392b;
+}
+
+.income-expense {
+  display: flex;
+  border: 1px solid var(--pale);
+  border-radius: 12px;
+  background-color: var(--pale);
+  padding: 20px;
+  margin: 20px 0;
+  gap: 10px;
+  width: 250px;
+}
+
+.income-expense > div:first-of-type {
+  border-right: 1px solid var(--darkGreen);
+}
+
+.income-expense > div {
+  flex: 1;
+  text-align: center;
+}
+
+.transaction li {
+  list-style-type: none;
+  border: 1px solid var(--pale);
+  border-radius: 5px;
+  background-color: var(--pale);
+  margin: 5px 0;
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding-right: 10px;
+  padding-left: 5px;
+}
+
+.transaction li.plus {
+  border-right: 5px solid #20a256;
+}
+
+.transaction li.minus {
+  border-right: 5px solid #c0392b;
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: #c0392b;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  width: 25px;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.transaction li:hover .delete-btn {
+  opacity: 1;
+}
+
+.add-transaction {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  margin-top: 15px;
+}
+
+.add-transaction form {
+  background-color: var(--neutral);
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  gap: 5px;
+}
+
+.add-transaction form input {
+  border: none;
+  border-radius: 3px;
+  background-color: var(--pale);
+  height: 20px;
+  padding-left: 5px;
+  font-family: "Sour Gummy", sans-serif;
+}
+
+.add-transaction button {
+  margin-top: 5px;
+}
+
+@media (min-width: 700px) {
+  button {
+    height: 30px;
+    width: 80px;
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 55px;
+  }
+
+  h2 {
+    font-size: 50px;
+  }
+
+  .home-page p {
+    font-size: 20px;
+  }
+
+  .log-in {
+    font-size: larger;
+  }
+
+  .log-in p {
+    font-size: 14px;
+  }
+
+  .sign-up {
+    font-size: larger;
+  }
+
+  .sign-up p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 700px) {
+  .log-in {
+    backdrop-filter: initial;
+  }
+
+  .sign-up {
+    backdrop-filter: initial;
+  }
+}
