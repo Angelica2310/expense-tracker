@@ -10,19 +10,24 @@ export function SignUpProvider({ children }) {
   }, []);
 
   async function fetchSignUp() {
-    const res = await fetch("http://localhost:8080/signup_list");
+    const res = await fetch(
+      "https://expense-tracker-server1.onrender.com/signup_list"
+    );
     const data = await res.json();
     setSignUp(data);
   }
 
   async function addUser(newUser) {
-    const res = await fetch("http://localhost:8080/signup_list", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newUser),
-    });
+    const res = await fetch(
+      "https://expense-tracker-server1.onrender.com/signup_list",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newUser),
+      }
+    );
 
     const addedUser = await res.json();
     setSignUp((prev) => [...prev, addedUser]);
