@@ -16,7 +16,7 @@ export function TransactionProvider({ children }) {
     const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
 
     const res = await fetch(
-      `http://localhost:8080/transaction_list/${currentUser.id}`
+      `https://expense-tracker-server1.onrender.com/transaction_list/${currentUser.id}`
     );
 
     const data = await res.json();
@@ -31,13 +31,16 @@ export function TransactionProvider({ children }) {
       user_id: currentUser.id,
     };
 
-    const res = await fetch("http://localhost:8080/transaction_list", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(transactionWithUserID),
-    });
+    const res = await fetch(
+      "https://expense-tracker-server1.onrender.com/transaction_list",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(transactionWithUserID),
+      }
+    );
 
     const addedTransaction = await res.json();
     setTransactions((prev) => [...prev, addedTransaction]);
@@ -46,9 +49,12 @@ export function TransactionProvider({ children }) {
 
   async function deleteTransaction(id) {
     try {
-      await fetch(`http://localhost:8080/transaction_list/${id}`, {
-        method: "DELETE",
-      });
+      await fetch(
+        `https://expense-tracker-server1.onrender.com/transaction_list/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       setTransactions((prev) =>
         prev.filter((transaction) => transaction.id !== id)
